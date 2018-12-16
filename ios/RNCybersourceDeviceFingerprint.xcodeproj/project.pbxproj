@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9276DED221C6C65F00EC9AC4 /* TrustDefenderMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9276DED121C6C65F00EC9AC4 /* TrustDefenderMobile.framework */; };
 		9276DEDB21C6C6CA00EC9AC4 /* RiskHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9276DED821C6C6C900EC9AC4 /* RiskHelper.m */; };
+		9276DF2C21C6E0C300EC9AC4 /* TrustDefenderMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9276DED121C6C65F00EC9AC4 /* TrustDefenderMobile.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		B3E7B58A1CC2AC0600A0062D /* RNCybersourceDeviceFingerprint.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNCybersourceDeviceFingerprint.m */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9276DED221C6C65F00EC9AC4 /* TrustDefenderMobile.framework in Frameworks */,
+				9276DF2C21C6E0C300EC9AC4 /* TrustDefenderMobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,15 +223,13 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(BUILT_PRODUCTS_DIR)/usr/local/include",
 					"$(SRCROOT)/../../React/**",
-					"$(SRCROOT)/node_modules/react-native/React/**",
 					"$(SRCROOT)/../react-native/React/**",
-					"$(SRCROOT)/../../../node_modules/react-native/React/**",
+					"$(SRCROOT)/node_modules/react-native/React/**",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
@@ -245,15 +243,13 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(BUILT_PRODUCTS_DIR)/usr/local/include",
 					"$(SRCROOT)/../../React/**",
-					"$(SRCROOT)/node_modules/react-native/React/**",
 					"$(SRCROOT)/../react-native/React/**",
-					"$(SRCROOT)/../../../node_modules/react-native/React/**",
+					"$(SRCROOT)/node_modules/react-native/React/**",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
