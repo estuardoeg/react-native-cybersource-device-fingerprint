@@ -1,5 +1,5 @@
 
-# react-native-cybersource-device-fingerprint
+# React Native Cybersource Device Fingerprint
 
 ## Getting started
 
