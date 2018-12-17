@@ -3,11 +3,7 @@
 
 ## Getting started
 
-`$ npm install react-native-cybersource-device-fingerprint --save`
-
-### Mostly automatic installation
-
-`$ react-native link react-native-cybersource-device-fingerprint`
+`$ yarn add https://github.com/estuardoeg/react-native-cybersource-device-fingerprint`
 
 ### Manual installation
 
@@ -17,7 +13,9 @@
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
 2. Go to `node_modules` ➜ `react-native-cybersource-device-fingerprint` and add `RNCybersourceDeviceFingerprint.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNCybersourceDeviceFingerprint.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-4. Run your project (`Cmd+R`)<
+4. Add pod 'RNCybersourceDeviceFingerprint', :path => '../node_modules/react-native-cybersource-device-fingerprint/ios' to your Podfile
+5. Run pod install from ios folder
+5. Run your project (`Cmd+R`)<
 
 #### Android
 
@@ -31,7 +29,7 @@
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':react-native-cybersource-device-fingerprint')
+      implementation project(':react-native-cybersource-device-fingerprint')
   	```
 
 

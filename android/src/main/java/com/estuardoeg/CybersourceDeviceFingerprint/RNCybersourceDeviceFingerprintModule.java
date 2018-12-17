@@ -1,11 +1,15 @@
 
 package com.estuardoeg.CybersourceDeviceFingerprint;
 
+import android.util.Log;
+
+import com.facebook.react.ReactPackage;
+import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.Callback;
-
+import com.facebook.react.uimanager.ViewManager;
 import com.threatmetrix.TrustDefender.Config;
 import com.threatmetrix.TrustDefender.EndNotifier;
 import com.threatmetrix.TrustDefender.ProfilingResult;
@@ -25,7 +29,6 @@ public class RNCybersourceDeviceFingerprintModule extends ReactContextBaseJavaMo
   public RNCybersourceDeviceFingerprintModule(ReactApplicationContext reactContext) {
     super(reactContext);
        this.reactContext = reactContext;
-       mContext = reactContext;
       trustDefenderConfig = new Config().setOrgId(ORG_ID)
               .setContext(reactContext);
   }
@@ -39,6 +42,7 @@ public class RNCybersourceDeviceFingerprintModule extends ReactContextBaseJavaMo
     public void getSessionID(final Callback callback){
         THMStatusCode initStatus = TrustDefender.getInstance().init(trustDefenderConfig);
         if(initStatus == THMStatusCode.THM_OK || initStatus == THMStatusCode.THM_Already_Initialised) {
+            Log.e("TrustDefender", "Successfully initialized: "+initStatus.getDesc());
             Log.e("TrustDefender", "Successfully initialized: "+initStatus.getDesc());
             Log.i("TrustDefender", "With version: " + TrustDefender.version);
             THMStatusCode status = TrustDefender.getInstance().doProfileRequest(new EndNotifier() {
@@ -72,7 +76,7 @@ public class RNCybersourceDeviceFingerprintModule extends ReactContextBaseJavaMo
         @Override
         public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
             List<NativeModule> modules = new ArrayList<>();
-            modules.add(new SessionModule(reactContext));
+            modules.add(new RNCybersourceDeviceFingerprintModule(reactContext));
             return modules;
         }
 
