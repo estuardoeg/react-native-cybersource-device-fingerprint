@@ -35,9 +35,13 @@
 
 ## Usage
 ```javascript
-import RNCybersourceDeviceFingerprint from 'react-native-cybersource-device-fingerprint';
+import RNCybersourceDeviceFingerprint from 'react-native-cybersource-device-fingerprint'
 
+
+        
 // TODO: What to do with the module?
-RNCybersourceDeviceFingerprint;
+RNCybersourceDeviceFingerprint.getSessionID( deviceFingerprint => {
+		console.log('deviceFingerprint', deviceFingerprint)
+});
 ```
   
