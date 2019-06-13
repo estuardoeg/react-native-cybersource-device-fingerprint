@@ -32,9 +32,6 @@ repositories {
 
 dependencies {
     compile 'com.facebook.react:react-native:+'
-
-    compile files('libs/TrustDefender-4.0-90-javadoc.jar')
-    compile files('libs/TrustDefender-4.0-90.jar')
-    compile files('libs/TrustDefender-4.0-90-native-libs.jar')
+    compile files('libs/TrustDefender-5.0-96.aar')
 }
   

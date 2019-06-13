@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9276DEDB21C6C6CA00EC9AC4 /* RiskHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9276DED821C6C6C900EC9AC4 /* RiskHelper.m */; };
-		9276DF2C21C6E0C300EC9AC4 /* TrustDefenderMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9276DED121C6C65F00EC9AC4 /* TrustDefenderMobile.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		92BB5C7F22B08519000B9966 /* TrustDefender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BB5BF622B0684B000B9966 /* TrustDefender.framework */; };
 		B3E7B58A1CC2AC0600A0062D /* RNCybersourceDeviceFingerprint.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNCybersourceDeviceFingerprint.m */; };
 /* End PBXBuildFile section */
 
@@ -26,9 +25,7 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNCybersourceDeviceFingerprint.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNCybersourceDeviceFingerprint.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9276DED121C6C65F00EC9AC4 /* TrustDefenderMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TrustDefenderMobile.framework; sourceTree = "<group>"; };
-		9276DED621C6C6C900EC9AC4 /* RiskHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RiskHelper.h; sourceTree = "<group>"; };
-		9276DED821C6C6C900EC9AC4 /* RiskHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RiskHelper.m; sourceTree = "<group>"; };
+		92BB5BF622B0684B000B9966 /* TrustDefender.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TrustDefender.framework; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNCybersourceDeviceFingerprint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCybersourceDeviceFingerprint.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNCybersourceDeviceFingerprint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCybersourceDeviceFingerprint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -38,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9276DF2C21C6E0C300EC9AC4 /* TrustDefenderMobile.framework in Frameworks */,
+				92BB5C7F22B08519000B9966 /* TrustDefender.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,8 +53,6 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				9276DED621C6C6C900EC9AC4 /* RiskHelper.h */,
-				9276DED821C6C6C900EC9AC4 /* RiskHelper.m */,
 				B3E7B5881CC2AC0600A0062D /* RNCybersourceDeviceFingerprint.h */,
 				B3E7B5891CC2AC0600A0062D /* RNCybersourceDeviceFingerprint.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
@@ -68,7 +63,7 @@
 		9276DED321C6C68200EC9AC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9276DED121C6C65F00EC9AC4 /* TrustDefenderMobile.framework */,
+				92BB5BF622B0684B000B9966 /* TrustDefender.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,6 +107,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
@@ -129,7 +125,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9276DEDB21C6C6CA00EC9AC4 /* RiskHelper.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNCybersourceDeviceFingerprint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +219,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -242,6 +238,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

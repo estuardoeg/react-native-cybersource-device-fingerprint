@@ -10,11 +10,8 @@
 #else
 #import <React/RCTBridgeModule.h>
 #endif
-#import "RiskHelper.h"
+
 
 @interface RNCybersourceDeviceFingerprint : NSObject <RCTBridgeModule>
-
-@property(nonatomic, strong) RiskHelper *riskHelper;
-- (NSString *) getSessionId;
 
 @end
