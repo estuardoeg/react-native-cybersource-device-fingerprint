@@ -32,6 +32,7 @@ repositories {
 
 dependencies {
     compile 'com.facebook.react:react-native:+'
-    compile files('libs/TrustDefender-5.0-96.aar')
+    compile files('libs/TMXProfiling-6.0-138.aar')
+    compile files('libs/TMXProfilingConnections-6.0-138.aar')
 }
   

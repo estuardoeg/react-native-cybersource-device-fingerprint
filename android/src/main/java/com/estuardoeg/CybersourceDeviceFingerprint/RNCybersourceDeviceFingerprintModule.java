@@ -10,11 +10,12 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeMap;
-import com.threatmetrix.TrustDefender.Config;
-import com.threatmetrix.TrustDefender.EndNotifier;
-import com.threatmetrix.TrustDefender.Profile;
-import com.threatmetrix.TrustDefender.ProfilingOptions;
-import com.threatmetrix.TrustDefender.TrustDefender;
+import com.threatmetrix.TrustDefender.TMXProfiling;
+import com.threatmetrix.TrustDefender.TMXConfig;
+import com.threatmetrix.TrustDefender.TMXStatusCode;
+import com.threatmetrix.TrustDefender.TMXProfilingOptions;
+import com.threatmetrix.TrustDefender.TMXEndNotifier;
+import com.threatmetrix.TrustDefender.TMXProfilingHandle.Result;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class RNCybersourceDeviceFingerprintModule extends ReactContextBaseJavaMo
 
     private static final String CYBERSOURCE_SDK = "RNCybersourceDeviceFingerprint";
     private final Application _application;
-    private TrustDefender _defender = null;
+    private TMXProfiling _defender = null;
 
     public RNCybersourceDeviceFingerprintModule(ReactApplicationContext reactContext, Application application) {
         super(reactContext);
@@ -43,10 +44,10 @@ public class RNCybersourceDeviceFingerprintModule extends ReactContextBaseJavaMo
             return;
         }
 
-        _defender = TrustDefender.getInstance();
+        _defender = TMXProfiling.getInstance();
 
         try {
-            Config config = new Config()
+            TMXConfig config = new TMXConfig()
                     .setOrgId(orgId)
                     //.setFPServer(serverURL)
                     .setContext(_application);
@@ -75,11 +76,11 @@ public class RNCybersourceDeviceFingerprintModule extends ReactContextBaseJavaMo
             }
         }
 
-        ProfilingOptions options = new ProfilingOptions().setCustomAttributes(list);
-        TrustDefender.getInstance().doProfileRequest(options, new CompletionNotifier(promise));
+        TMXProfilingOptions options = new TMXProfilingOptions().setCustomAttributes(list);
+        TMXProfiling.getInstance().profile(options, new CompletionNotifier(promise));
     }
 
-    private class CompletionNotifier implements EndNotifier {
+    private class CompletionNotifier implements TMXEndNotifier {
         private final Promise _promise;
 
         CompletionNotifier(Promise promise) {
@@ -88,7 +89,7 @@ public class RNCybersourceDeviceFingerprintModule extends ReactContextBaseJavaMo
         }
 
         @Override
-        public void complete(Profile.Result result) {
+        public void complete(Result result) {
             WritableMap map = new WritableNativeMap();
             map.putString("sessionId", result.getSessionID());
             map.putInt("status", result.getStatus().ordinal());
