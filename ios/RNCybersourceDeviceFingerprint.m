@@ -7,12 +7,13 @@
 
 #import "RNCybersourceDeviceFingerprint.h"
 #import <React/RCTLog.h>
-#import <TrustDefender/TrustDefender.h>
+#import <TMXProfiling/TMXProfiling.h>
+#import <TMXProfilingConnections/TMXProfilingConnections.h>
 
 static NSString *const kRejectCode = @"CyberSourceSDKModule";
 
 @implementation RNCybersourceDeviceFingerprint{
-    THMTrustDefender *_defender;
+    TMXProfiling *_defender;
 }
 
 - (dispatch_queue_t)methodQueue{
@@ -32,12 +33,12 @@ RCT_EXPORT_METHOD(
         return;
     }
     
-    _defender = [THMTrustDefender sharedInstance];
+    _defender = [TMXProfiling sharedInstance];
     
     @try {
         [_defender configure:@{
-                               THMOrgID: orgId,
-                               // THMFingerprintServer: serverURL,
+                               TMXOrgID: orgId,
+                               // TMXFingerprintServer: serverURL,
                                }];
     } @catch (NSException *exception) {
         reject(kRejectCode, @"Invalid parameters", nil);
@@ -52,15 +53,15 @@ RCT_EXPORT_METHOD(
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject
                   ) {
-    [_defender doProfileRequestWithOptions:@{
-                                             THMCustomAttributes: attributes,
-                                             } andCallbackBlock:^(NSDictionary *result) {
-                                                 THMStatusCode statusCode = [[result valueForKey:THMProfileStatus] integerValue];
-                                                 resolve(@{
-                                                           @"sessionId": [result valueForKey:THMSessionID],
-                                                           @"status": @(statusCode),
-                                                           });
-                                             }];
+    [_defender profileDeviceUsing:@{
+       TMXCustomAttributes: attributes,
+    } callbackBlock:^(NSDictionary * result) {
+        TMXStatusCode statusCode = [[result valueForKey:TMXProfileStatus] integerValue];
+        resolve(@{
+                   @"sessionId": [result valueForKey:TMXSessionID],
+                   @"status": @(statusCode),
+                  });
+    }];
 }
 
 @end
