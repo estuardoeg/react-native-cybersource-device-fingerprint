@@ -10,6 +10,8 @@
 
 #### iOS
 
+NOTE: if you use RN 0.60+ you can autolinking, ignore step 1.
+
 1. Add pod 'RNCybersourceDeviceFingerprint', :path => '../node_modules/react-native-cybersource-device-fingerprint/ios' to your Podfile
 2. Run pod install from ios folder
 3. Run your project (`Cmd+R`)<
