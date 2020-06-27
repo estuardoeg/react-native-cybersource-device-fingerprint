@@ -1,5 +1,5 @@
 
-package com.estuardoeg.CybersourceDeviceFingerprint;
+package com.mauriciomartinscruz.CybersourceDeviceFingerprint;
 
 import android.app.Application;
 
@@ -13,20 +13,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 public class RNCybersourceDeviceFingerprintPackage implements ReactPackage {
-
-    private final Application _application;
-
-    public RNCybersourceDeviceFingerprintPackage(Application application) {
-        super();
-        _application = application;
+    public RNCybersourceDeviceFingerprintPackage() {
+      super();
     }
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new RNCybersourceDeviceFingerprintModule(reactContext, _application));
+        modules.add(new RNCybersourceDeviceFingerprintModule(reactContext));
         return modules;
-
     }
 
     // Deprecated from RN 0.47

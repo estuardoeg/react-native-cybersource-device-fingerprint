@@ -1,5 +1,5 @@
 
-package com.estuardoeg.CybersourceDeviceFingerprint;
+package com.mauriciomartinscruz.CybersourceDeviceFingerprint;
 
 import android.app.Application;
 
@@ -24,12 +24,10 @@ import java.util.List;
 public class RNCybersourceDeviceFingerprintModule extends ReactContextBaseJavaModule {
 
     private static final String CYBERSOURCE_SDK = "RNCybersourceDeviceFingerprint";
-    private final Application _application;
     private TMXProfiling _defender = null;
 
-    public RNCybersourceDeviceFingerprintModule(ReactApplicationContext reactContext, Application application) {
+    public RNCybersourceDeviceFingerprintModule(ReactApplicationContext reactContext) {
         super(reactContext);
-        _application = application;
     }
 
     @Override
@@ -38,7 +36,7 @@ public class RNCybersourceDeviceFingerprintModule extends ReactContextBaseJavaMo
     }
 
     @ReactMethod
-    public void configure(final String orgId, /*final String serverURL, */final Promise promise) {
+    public void configure(final String orgId, final Promise promise) {
         if (_defender != null) {
             promise.reject(CYBERSOURCE_SDK, "CyberSource SDK is already initialised");
             return;
@@ -49,13 +47,11 @@ public class RNCybersourceDeviceFingerprintModule extends ReactContextBaseJavaMo
         try {
             TMXConfig config = new TMXConfig()
                     .setOrgId(orgId)
-                    //.setFPServer(serverURL)
-                    .setContext(_application);
+                    .setContext(getReactApplicationContext());
             _defender.init(config);
         } catch (IllegalArgumentException exception) {
             promise.reject(CYBERSOURCE_SDK, "Invalid parameters");
         }
-
         promise.resolve(true);
     }
 
