@@ -3,7 +3,7 @@
 
 ## Getting started
 
-`$ yarn add https://github.com/estuardoeg/react-native-cybersource-device-fingerprint`
+`$ yarn add https://github.com/mauriciomartinscruz/react-native-cybersource-device-fingerprint`
 
 ### Manual installation
 
@@ -20,8 +20,6 @@ NOTE: if you use RN 0.60+ you can autolinking, ignore step 1.
 
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`
   - Add `import com.estuardoeg.CybersourceDeviceFingerprint.RNCybersourceDeviceFingerprintPackage;` to the imports at the top of the file
-  - Add private static Application _application;
-  - Add in onCreate() _application = this;
   - Add `new RNCybersourceDeviceFingerprintPackage(_application)` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
