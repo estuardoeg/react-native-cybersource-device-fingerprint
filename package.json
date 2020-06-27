@@ -13,6 +13,6 @@
   "author": "Estuardo Estrada",
   "license": "MIT",
   "peerDependencies": {
-    "react-native": "^0.50.0"
+    "react-native": "^0.60.0"
   }
 }
