@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-cybersource-device-fingerprint",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This library returns the device fingerprint, required for Cybersource mobile implementations",
   "main": "index.js",
   "scripts": {
